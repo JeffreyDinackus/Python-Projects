@@ -75,3 +75,5 @@ print(fruits)
 print(fruits.index("flyfruit"))
 
 print(fruits)
+
+print(fruits[:2])
