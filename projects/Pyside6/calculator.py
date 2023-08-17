@@ -12,25 +12,29 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Calculator")
         # trying out different widgets
         self.setGeometry(100, 60, 1000, 800)
-        custom_font = QFont("Arial", 16)  # Create a QFont instance with the desired font and size
-        self.total = 0
-
-        # self.setMinimumSize(QSize(400, 300))
-        # Set the central widget of the Window.
+        custom_font = QFont("Arial", 16) 
         self.central_widget = QWidget()
         self.setCentralWidget(self.central_widget)
 
         self.layout = QVBoxLayout()
         self.central_widget.setLayout(self.layout)
+         # Create a QFont instance with the desired font and size
+        self.total = 0
 
-        self.number_label = QLabel(f"Total: {self.total}")
+        self.operation = ""
+
+        
+
+
+        # self.setMinimumSize(QSize(400, 300))
+        # Set the central widget of the Window.
+
+
+        self.number_label = QLabel(f"{self.total}")
         self.layout.addWidget(self.number_label)
         self.number_label.setFont(QFont('Arial', 20))
         
         self.running_number = 0
-        self.running = QLabel(f"Running Number: {self.running_number}")
-        self.layout.addWidget(self.running)
-        self.running.setFont(QFont('Arial', 20))
 
         self.oneButton = QPushButton("1")
         self.oneButton.clicked.connect(self.one)
@@ -48,6 +52,36 @@ class MainWindow(QMainWindow):
 
 
 
+
+
+        self.plusButton = QPushButton("+")
+        self.plusButton.clicked.connect(self.add)
+        self.plusButton.setFixedSize(50, 50)
+        self.layout.addWidget(self.plusButton)
+        self.plusButton.setFont(QFont('Arial', 50))
+        self.plusButton.setFont(custom_font)
+
+        self.oneButton = QPushButton("-")
+        self.oneButton.clicked.connect(self.subtract)
+        self.oneButton.setFixedSize(50, 50)
+        self.layout.addWidget(self.oneButton)
+        self.oneButton.setFont(QFont('Arial', 50))
+        self.oneButton.setFont(custom_font)
+
+        self.oneButton = QPushButton("*")
+        self.oneButton.clicked.connect(self.multiply)
+        self.oneButton.setFixedSize(50, 50)
+        self.layout.addWidget(self.oneButton)
+        self.oneButton.setFont(QFont('Arial', 50))
+        self.oneButton.setFont(custom_font)
+
+        self.oneButton = QPushButton("/")
+        self.oneButton.clicked.connect(self.divide)
+        self.oneButton.setFixedSize(50, 50)
+        self.layout.addWidget(self.oneButton)
+        self.oneButton.setFont(QFont('Arial', 50))
+        self.oneButton.setFont(custom_font)
+
         self.button = QPushButton("calculate")
         self.button.clicked.connect(self.calculate)
         self.button.setFixedSize(500, 100)
@@ -56,15 +90,29 @@ class MainWindow(QMainWindow):
         self.button.setFont(custom_font)
 
 
+
+
+    def add(self):
+        self.operation = "add"
+
+    def subtract(self):
+        self.operation = "subtract"
+
+    def multiply(self):
+        self.operation = "multiply"
+
+    def divide(self):
+        self.operation = "divide"
+
     def calculate(self):
         self.total += self.running_number
 
-        self.number_label.setText(f"Number: {self.total}")
+        self.number_label.setText(f"{self.total}")
 
 
     def one(self):
         self.running_number = self.running_number + 1
-        self.running.setText(f"Running Number: {self.total}")
+        
 
     def two(self):
         print("2")
