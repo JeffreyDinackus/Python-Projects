@@ -1,5 +1,5 @@
 from PySide6.QtCore import QSize, Qt
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QWidget, QVBoxLayout, QLabel
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QWidget, QVBoxLayout, QLabel, QHBoxLayout
 from PySide6.QtGui import QFont  # Import QFont from QtGui module
 
 # Only needed for access to command line arguments
@@ -17,6 +17,8 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.central_widget)
 
         self.layout = QVBoxLayout()
+        layout2 = QHBoxLayout()  # Create a horizontal layout
+
         self.central_widget.setLayout(self.layout)
          # Create a QFont instance with the desired font and size
         self.total = 0
