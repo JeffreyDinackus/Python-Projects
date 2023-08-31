@@ -2,7 +2,7 @@ import math
 
 array = [1,2,3,4,5,6,7,8,9,10,15,200]
 # in this problem the answer is always in the array
-value_to_find = 3
+value_to_find = 9
 
 length = len(array)
 
